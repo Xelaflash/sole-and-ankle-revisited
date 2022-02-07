@@ -71,8 +71,11 @@ const Link = styled.a`
   color: inherit;
   &:hover img {
     transform: scale(1.1);
-    transition: transform 250ms ease-out;
+
     filter: invert(10%);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 250ms ease-out;
   }
 `;
 
