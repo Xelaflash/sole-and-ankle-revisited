@@ -26,33 +26,49 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/sale">
+            <span data-hover="Sale"> Sale</span>
+          </NavLink>
+          <NavLink href="/new">
+            <span data-hover="New&nbsp;Releases">New&nbsp;Releases</span>
+          </NavLink>
+          <NavLink href="/men">
+            <span data-hover="Men">Men</span>
+          </NavLink>
+          <NavLink href="/women">
+            <span data-hover="Women">Women</span>
+          </NavLink>
+          <NavLink href="/kids">
+            <span data-hover="Kids">Kids</span>
+          </NavLink>
+          <NavLink href="/collections">
+            {" "}
+            <span data-hover="Collections">Collections</span>
+          </NavLink>
         </Nav>
         <MobileActions>
           <UnstyledButton>
-              <Icon id="shopping-bag" strokeWidth={2} color={'var(--color-gray-900)'}/>
-            <VisuallyHidden>
-              Open cart
-            </VisuallyHidden>
-          </ UnstyledButton>
+            <Icon
+              id="shopping-bag"
+              strokeWidth={2}
+              color={"var(--color-gray-900)"}
+            />
+            <VisuallyHidden>Open cart</VisuallyHidden>
+          </UnstyledButton>
           <UnstyledButton>
-              <Icon id="search" strokeWidth={2} color={'var(--color-gray-900)'}/>
-            <VisuallyHidden>
-              Search
-            </VisuallyHidden>
-          </ UnstyledButton>
+            <Icon id="search" strokeWidth={2} color={"var(--color-gray-900)"} />
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
           <UnstyledButton>
-              <Icon id="menu" strokeWidth={2} color={'var(--color-gray-900)'} onClick={() => setShowMobileMenu(true)}/>
-            <VisuallyHidden>
-              Menu
-            </VisuallyHidden>
-          </ UnstyledButton>
-        </ MobileActions>
+            <Icon
+              id="menu"
+              strokeWidth={2}
+              color={"var(--color-gray-900)"}
+              onClick={() => setShowMobileMenu(true)}
+            />
+            <VisuallyHidden>Menu</VisuallyHidden>
+          </UnstyledButton>
+        </MobileActions>
         <Filler />
       </MainHeader>
 
@@ -115,6 +131,27 @@ const NavLink = styled.a`
   text-decoration: none;
   color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
+
+  overflow: hidden;
+
+  &:hover span {
+    transform: translateY(-100%);
+  }
+
+  span {
+    /* TODO: change here */
+    position: relative;
+    display: inline-block;
+    transition: transform 150ms ease-out;
+  }
+
+  span::before {
+    position: absolute;
+    top: 100%;
+    content: attr(data-hover);
+    transform: translate3d(0, 0, 0);
+    font-weight: 700;
+  }
 
   &:first-of-type {
     color: var(--color-secondary);
