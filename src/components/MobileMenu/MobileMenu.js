@@ -84,7 +84,7 @@ const Overlay = styled(DialogOverlay)`
   background: hsl(220deg 5% 40% / 0.8);
   display: flex;
   justify-content: flex-end;
-  animation: 350ms ${backdropFadeIn} ease-out;
+  animation: 350ms ${backdropFadeIn} both ease-out;
 `;
 
 const Content = styled(DialogContent)`
@@ -96,8 +96,6 @@ const Content = styled(DialogContent)`
   flex-direction: column;
   animation: 250ms ${slideIn} ease-out;
 `;
-
-
 
 const Filler = styled.div`
   flex: 1;

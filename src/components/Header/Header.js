@@ -27,7 +27,7 @@ const Header = () => {
         </LogoWrapper>
         <Nav>
           <NavLink href="/sale">
-            <span data-hover="Sale"> Sale</span>
+            <span data-hover="Sale">Sale</span>
           </NavLink>
           <NavLink href="/new">
             <span data-hover="New&nbsp;Releases">New&nbsp;Releases</span>
@@ -139,7 +139,6 @@ const NavLink = styled.a`
   }
 
   span {
-    /* TODO: change here */
     position: relative;
     display: inline-block;
     transition: transform 150ms ease-out;
