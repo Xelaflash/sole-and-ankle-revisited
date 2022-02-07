@@ -69,17 +69,26 @@ const ShoeCard = ({
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  &:hover img {
+    transform: scale(1.1);
+    transition: transform 250ms ease-out;
+    filter: invert(10%);
+  }
 `;
 
 const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
   position: relative;
+  overflow: hidden;
+  line-height: 0;
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Image = styled.img`
   width: 100%;
   border-radius: 16px 16px 4px 4px;
+  transition: transform 500ms;
 `;
 
 const Row = styled.div`
