@@ -8,6 +8,7 @@ import { QUERIES, WEIGHTS } from '../../constants';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
+import { keyframes } from 'styled-components';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
@@ -46,17 +47,44 @@ const CloseButton = styled(UnstyledButton)`
   padding: 16px;
 `;
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const slideIn = keyframes`
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 300px;
+  }
+`;
+
+const backdropFadeIn = keyframes`
+  0% {
+    background: hsl(220deg 5% 40% / 0.0);
+  }
+  100% {
+    background: hsl(220deg 5% 40% / 0.8);
+  }
+`;
 
 // we compose from reach ui styles
 const Overlay = styled(DialogOverlay)`
   position: fixed;
   top: 0;
-  left:0; 
+  left: 0;
   right: 0;
   bottom: 0;
   background: hsl(220deg 5% 40% / 0.8);
   display: flex;
   justify-content: flex-end;
+  animation: 350ms ${backdropFadeIn} ease-out;
 `;
 
 const Content = styled(DialogContent)`
@@ -64,18 +92,23 @@ const Content = styled(DialogContent)`
   height: 100%;
   width: 300px;
   padding: 32px;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  animation: 250ms ${slideIn} ease-out;
 `;
+
+
 
 const Filler = styled.div`
   flex: 1;
 `;
 
 const Nav = styled.nav`
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 16px;
+  animation: ${fadeIn} ease-in 300ms backwards;
+  animation-delay: 250ms;
 `;
 
 const NavLink = styled.nav`
